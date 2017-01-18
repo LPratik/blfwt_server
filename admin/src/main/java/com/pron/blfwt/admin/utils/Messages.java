@@ -61,5 +61,6 @@ public class Messages {
 	public static final String MESSAGE_JOB_TASK_DOES_NOT_EXISTS = "message.job.does.not.exists";
 	
 	
-	
+	public static final String MESSAGE_MEMBER_ALREADY_EXISTS = "message.member.already.exists";
+	public static final String MESSAGE_MEMBER_NOT_FOUND = "message.member.not.found";
 }

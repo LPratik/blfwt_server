@@ -1,8 +1,15 @@
 package com.pron.blfwt.admin.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -11,12 +18,14 @@ import java.util.Date;
  */
 @Entity
 @Table(name="members")
-@NamedQuery(name="Member.findAll", query="SELECT m FROM Member m")
 public class Member implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private int id;
+
+	@Column(name="aadhar_no")
+	private String aadharNo;
 
 	private String address;
 
@@ -39,13 +48,21 @@ public class Member implements Serializable {
 	private String memberType;
 
 	@Column(name="mobile_no")
-	private int mobileNo;
+	private String mobileNo;
+
+	private String muid;
 
 	private String name;
 
 	private String nationality;
 
 	private String occupation;
+
+	@Column(name="pan_no")
+	private String panNo;
+
+	@Column(name="ref_muid")
+	private String refMuid;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updated;
@@ -59,6 +76,14 @@ public class Member implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getAadharNo() {
+		return this.aadharNo;
+	}
+
+	public void setAadharNo(String aadharNo) {
+		this.aadharNo = aadharNo;
 	}
 
 	public String getAddress() {
@@ -117,12 +142,20 @@ public class Member implements Serializable {
 		this.memberType = memberType;
 	}
 
-	public int getMobileNo() {
+	public String getMobileNo() {
 		return this.mobileNo;
 	}
 
-	public void setMobileNo(int mobileNo) {
+	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
+	}
+
+	public String getMuid() {
+		return this.muid;
+	}
+
+	public void setMuid(String muid) {
+		this.muid = muid;
 	}
 
 	public String getName() {
@@ -147,6 +180,22 @@ public class Member implements Serializable {
 
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
+	}
+
+	public String getPanNo() {
+		return this.panNo;
+	}
+
+	public void setPanNo(String panNo) {
+		this.panNo = panNo;
+	}
+
+	public String getRefMuid() {
+		return this.refMuid;
+	}
+
+	public void setRefMuid(String refMuid) {
+		this.refMuid = refMuid;
 	}
 
 	public Date getUpdated() {

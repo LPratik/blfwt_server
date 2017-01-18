@@ -19,5 +19,6 @@
 	 -->	<!-- <property name="hibernate.cache.provider_configuration_file_resource_path">ehcache111.xml</property> -->
 		                    <mapping class="com.pron.blfwt.admin.entity.AdminUser" />
 		<mapping class="com.pron.blfwt.admin.entity.AdminSession" />
+		<mapping class="com.pron.blfwt.admin.entity.Member" />
 	</session-factory>
 </hibernate-configuration>

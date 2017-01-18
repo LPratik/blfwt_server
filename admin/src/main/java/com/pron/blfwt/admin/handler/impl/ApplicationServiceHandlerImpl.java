@@ -18,6 +18,8 @@ import com.pron.blfwt.admin.handler.ApplicationServiceHandler;
 import com.pron.blfwt.admin.handler.BaseHandler;
 import com.pron.blfwt.admin.model.AdminUserVO;
 import com.pron.blfwt.admin.model.JsonResponse;
+import com.pron.blfwt.admin.model.MemberVO;
+import com.pron.blfwt.admin.service.AdminMemberService;
 import com.pron.blfwt.admin.service.AdminSessionService;
 
 
@@ -27,9 +29,12 @@ public class ApplicationServiceHandlerImpl extends BaseHandler implements Applic
 	
 	@Autowired
 	private AdminSessionService adminSessionService; 
+	
+	@Autowired 
+	private AdminMemberService adminMemberService;
 
 	
-	public ResponseEntity<?> process(AuthenticatedRestAction action, String sessionId, Object param,String schoolId, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ResponseEntity<?> process(AuthenticatedRestAction action, String sessionId, Object param,String paramId, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		AdminUserDTO userVO = adminSessionService.checkSession(sessionId, response);
 	
 		switch(action){
@@ -39,7 +44,18 @@ public class ApplicationServiceHandlerImpl extends BaseHandler implements Applic
 			case DELETE_SESSION:
 				 adminSessionService.deleteSession(sessionId, response);
 				 break;
-				 
+			
+			case ADD_MEMBER :	 
+				return adminMemberService.addMember((MemberVO) param, request, response);
+				
+			case GET_ALL_MEMBERS:
+				return adminMemberService.getAllMembers(request, response);
+				
+			case GET_MEMBER_BY_ID:
+				return adminMemberService.getMemberById(paramId,request,response);
+			
+			case GET_MEMBER_BY_NAME:
+				return adminMemberService.getMemberByName(paramId, request, response);
 			default :
 				//return ResponseEntity.status(HttpStatus.OK).body(JsonResponse.instance(HttpStatus.FORBIDDEN.value(), Messages.MESSAGE_INVALID_USERTYPE_ACCESS,resolveLocalizedMessage(Messages.MESSAGE_INVALID_USERTYPE_ACCESS)));
 		}

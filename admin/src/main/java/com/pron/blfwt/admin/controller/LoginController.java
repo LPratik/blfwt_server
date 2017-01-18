@@ -8,9 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +23,6 @@ import com.pron.blfwt.admin.handler.ApplicationServiceHandler;
 import com.pron.blfwt.admin.model.AdminUserVO;
 import com.pron.blfwt.admin.model.JsonResponse;
 import com.pron.blfwt.admin.utils.Constants;
-import com.pron.blfwt.admin.validator.AdminUserValidator;
 /**
  * 
  * @author Proneuver

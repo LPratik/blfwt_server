@@ -23,6 +23,8 @@ public class Constants {
 	public static final String PARAM_STUDENT_ID = "studentId";
 	public static final String PARAM_COURSEVOS = "courseVos";
 	
+	public static final String PARAM_MEMBER_ID = "memberId";
+	public static final String PARAM_MEMBER_NAME = "memberName";
 	/**Session & cookie related configurable parameters**/
 	public static final int timeOutInterval = 1800;
 	public static final String ADMIN_SESSION_ID = "adminSessionId";

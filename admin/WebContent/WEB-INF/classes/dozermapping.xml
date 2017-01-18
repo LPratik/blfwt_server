@@ -8,4 +8,22 @@
 		<date-format>dd/MM/yyyy HH:mm:ss</date-format>
 		<wildcard>true</wildcard>
 	</configuration>
+	<mapping>
+		<class-a>com.pron.blfwt.admin.model.MemberVO</class-a>
+		<class-b>com.pron.blfwt.admin.entity.Member</class-b>
+		<field
+			custom-converter="com.pron.blfwt.admin.utils.MemberVOToMember">
+			<a>birthDate</a>
+			<b>birthDate</b>
+		</field>
+	</mapping>
+	<mapping>
+		<class-a>com.pron.blfwt.admin.entity.Member</class-a>
+		<class-b>com.pron.blfwt.admin.dto.MemberDTO</class-b>
+		<field
+			custom-converter="com.pron.blfwt.admin.utils.MemberToMemberDTO">
+			<a>birthDate</a>
+			<b>birthDate</b>
+		</field>
+	</mapping>
 </mappings>  
